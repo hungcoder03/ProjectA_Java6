@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .register-container {
+            max-width: 500px; /* Rộng hơn chút cho form đăng ký */
+            margin-top: 60px; /* Gần top hơn chút */
+            margin-bottom: 60px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-7"> <!-- Tăng độ rộng cột -->
+            <div class="register-container">
+                <h2 class="text-center mb-4">Đăng ký tài khoản mới</h2>
+
+                <!-- Hiển thị thông báo lỗi -->
+                <div th:if="${errorMessage}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <span th:text="${errorMessage}"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <form th:action="@{/auth/register}" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Tên đăng nhập: *</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Chọn tên đăng nhập (ít nhất 3 ký tự)" required minlength="3"
+                               th:value="${username}"> <!-- Giữ lại giá trị -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Địa chỉ Email: *</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email hợp lệ" required
+                               th:value="${email}"> <!-- Giữ lại giá trị -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Mật khẩu: *</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu (ít nhất 6 ký tự)" required minlength="6">
+                        <!-- Nên thêm input xác nhận mật khẩu và kiểm tra ở Controller/JS -->
+                        <!--
+                        <label for="confirmPassword" class="form-label mt-2">Xác nhận mật khẩu: *</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Nhập lại mật khẩu" required minlength="6">
+                        -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Tên đầy đủ:</label>
+                        <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Nhập tên đầy đủ (tùy chọn)"
+                               th:value="${fullName}"> <!-- Giữ lại giá trị -->
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Đăng ký</button>
+                    </div>
+                </form>
+
+                <hr>
+
+                <p class="text-center">
+                    Đã có tài khoản? <a th:href="@{/auth/login}">Đăng nhập tại đây</a>
+                </p>
+                <p class="text-center mt-2">
+                    <a th:href="@{/}">Quay lại trang chủ</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
