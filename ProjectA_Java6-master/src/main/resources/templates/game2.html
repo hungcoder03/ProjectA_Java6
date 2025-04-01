@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap}" rel="stylesheet">
+
+    <title>Lugx Gaming - Product Detail</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" th:href="@{/assets/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/templatemo-lugx-gaming.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/owl.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/animate.css}">
+    <link rel="stylesheet" th:href="@{https://unpkg.com/swiper@7/swiper-bundle.min.css}"/>
+    <!--
+
+    TemplateMo 589 lugx gaming
+
+    https://templatemo.com/tm-589-lugx-gaming
+
+    -->
+</head>
+
+<body>
+
+<!-- ***** Preloader Start ***** -->
+<div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo.png" alt="" style="width: 158px;">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Our Shop</a></li>
+                        <li><a href="product-details.html" class="active">Product Details</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Sign In</a></li>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Modern Warfare® II</h3>
+                <span class="breadcrumb"><a href="#">Home</a>  >  <a href="#">Shop</a>  >  Assasin Creed</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="single-product section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="left-image">
+                    <img height="315" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1217060/header.jpg?t=1737351766" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <h4>Gunfire Reborn - Bundles</h4>
+                <span class="price"><em>$12</em> $10</span>
+                <h4>Gunfire Reborn</h4>
+                <span class="price"><em>$20</em> $18.5</span>
+                <p>Gunfire Reborn is a first-person shooter role-playing adventure game. Players can control heroes with different abilities to progress through diverse world gameplay, random weapons in random levels. The game can be played solo or Co-op with 4 other players.</p>
+                <form id="qty" action="#">
+                    <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
+                    <!-- Chưa có trang giỏ hàng -->
+                    <button type="submit"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+                </form>
+                <ul>
+                    <li><span>Game ID:</span> 枪火, Gunfire</li>
+                    <li><span>Genre:</span> <a href="#">Action</a>, <a href="#">Roguelite</a>, <a href="#">FPS</a>, <a href="#">Co-op</a></li>
+                    <li><span>Multi-tags:</span> <a href="#">Shooter</a>, <a href="#">Adventure</a>, <a href="#">Multiplayer</a>, <a href="#">Procedural Generation</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-12">
+                <div class="sep"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="more-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tabs-content">
+                    <div class="row">
+                        <div class="nav-wrapper ">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (3)</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                                <p>Gunfire Reborn is a first-person shooter role-playing adventure game. Players can control heroes with different abilities to enter a diverse gameplay world, random weapons in random levels. The game can be played single or Co-op with 4 other players.</p>
+                                <p>Every level is random; each new restart is a brand-new experience. You will meet different heroes and experience new weapons, items, checkpoints, and unique combat rhythms throughout the game.</p>
+                                <p>FPS+Roguelite+RPG combined gameplay, construct diverse Build through death cycle for different experience</p>
+                                <p>Elaborate, yet randomized stage experience</p>
+                                <p>Over 100 different items and various weapons</p>
+                                <p>Many heroes and multiple game plus with different game mechanism<p>
+                                <p>Unique art style</p>
+                                <p>Co-op level-based adventure</p>
+                            </div>
+                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1217060/extras/互动.gif?t=1737351766">
+                                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1217060/extras/E01_5.gif?t=1737351766">
+                                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1217060/extras/E04_2.gif?t=1737351766">
+                                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1217060/extras/E06_06.gif?t=1737351766">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section categories related-games">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h6>Action</h6>
+                    <h2>Related Games</h2>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="main-button">
+                    <a href="shop.html">View All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="position: relative;width: 80%;margin: auto;overflow: hidden;background: #0d6efd;padding: 20px;border-radius: 8px;">
+        <button style="position: absolute;top: 50%;transform: translateY(-50%);background: rgba(0, 0, 0, 0.5);border: none;color: white;padding: 10px;cursor: pointer;border-radius: 5px;left: 0;">&#10094;</button>
+        <div style="display: flex;transition: transform 0.5s ease-in-out;" id="gameSlider">
+            <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
+                <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg?t=1741113466" alt="Game 1">
+                <p style="margin: 10px 0;">Risk of Rain 2</p>
+                <p style="color: green;font-weight: bold;">-67%</p>
+                <p style="text-decoration: line-through;color: gray;">220.000đ</p>
+                <p style="color: #0d6efd;0font-weight: bold;">72.500đ</p>
+            </div>
+            <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
+                <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg?t=1741113466" alt="Game 2">
+                <p style="margin: 10px 0;">Counter-Strike 2</p>
+                <p style="color: #0d6efd;0font-weight: bold;">Free To Play</p>
+            </div>
+            <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
+                <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg?t=1741113466" alt="Game 3">
+                <p style="margin: 10px 0;">Borderlands 3</p>
+                <p style="color: green;font-weight: bold;">-90%</p>
+                <p style="text-decoration: line-through;color: gray;">990.000đ</p>
+                <p style="color: #0d6efd;0font-weight: bold;">99.000đ</p>
+            </div>
+            <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
+                <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg?t=1741113466" alt="Game 4">
+                <p style="margin: 10px 0;">Rainbow Six Siege</p>
+                <p style="color: #0d6efd;0font-weight: bold;">339.000đ</p>
+            </div>
+        </div>
+        <button style="position: absolute;top: 50%;transform: translateY(-50%);background: rgba(0, 0, 0, 0.5);border: none;color: white;padding: 10px;cursor: pointer;border-radius: 5px;right: 0;">&#10095;</button>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="col-lg-12">
+            <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" th:href="@{https://templatemo.com}" target="_blank"></a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/js/isotope.min.js}"></script>
+<script th:src="@{/assets/js/owl-carousel.js}"></script>
+<script th:src="@{/assets/js/counter.js}"></script>
+<script th:src="@{/assets/js/custom.js}"></script>
+
+</body>
+</html>
