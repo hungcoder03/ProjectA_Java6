@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap}" rel="stylesheet">
+
+    <title>Lugx Gaming Shop HTML5 Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" th:href="@{/assets/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/templatemo-lugx-gaming.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/owl.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/animate.css}">
+    <link rel="stylesheet" th:href="@{https://unpkg.com/swiper@7/swiper-bundle.min.css}"/>
+    <!--
+
+    TemplateMo 589 lugx gaming
+
+    https://templatemo.com/tm-589-lugx-gaming
+
+    -->
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; }
+        /*.container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px; }*/
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+        img { width: 50px; height: 50px; object-fit: cover; }
+        .btn { padding: 5px 10px; border-radius: 5px; }
+    </style>
+</head>
+
+<body>
+
+<!-- ***** Preloader Start ***** -->
+<div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo.png" alt="" style="width: 158px;">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a th:href="@{/home}" >Home</a></li>
+                        <li><a th:href="@{/shop}">Our Shop</a></li>
+                        <li><a th:href="@{/product-details}">Product Details</a></li>
+                        <li><a th:href="@{/contact}">Contact Us</a></li>
+                        <li><a th:href="@{/cart}"  class="active">Cart</a></li>
+                        <li><a href="#">Sign In</a></li>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+<div class="main-banner">
+    <div class="container">
+        <div class="row">
+            <!--            <div class="col-lg-6 align-self-center">-->
+            <!--                <div class="caption header-text">-->
+            <!--                    <h6>Welcome to lugx</h6>-->
+            <!--                    <h2>BEST GAMING SITE EVER!</h2>-->
+            <!--                    <p>LUGX Gaming is free Bootstrap 5 HTML CSS website template for your gaming websites. You can download and use this layout for commercial purposes. Please tell your friends about TemplateMo.</p>-->
+            <!--                    <div class="search-input">-->
+            <!--                        <form id="search" action="#">-->
+            <!--                            <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />-->
+            <!--                            <button role="button">Search Now</button>-->
+            <!--                        </form>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-lg-4 offset-lg-2">-->
+            <!--                <div class="right-image">-->
+            <!--                    <img src="assets/images/banner-image.jpg" alt="">-->
+            <!--                    <span class="price">$22</span>-->
+            <!--                    <span class="offer">-40%</span>-->
+            <!--                </div>-->
+            <!--            </div>-->
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-5">
+    <h1 class="text-center">Giỏ Hàng Của Bạn</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Mô tả</th>
+            <th>Giá</th>
+            <th>Thành tiền</th>
+            <th>Hành động</th>
+        </tr>
+        </thead>
+        <tbody id="cart-items"></tbody>
+    </table>
+    <p class="fw-bold text-end">Tổng tiền: $<span id="cart-total">0</span></p>
+    <button class="btn btn-primary w-100" onclick="checkout()">Thanh toán</button>
+</div>
+
+<div class="container mt-5">
+    <h1 class="text-center">Lịch Sử Mua Hàng</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Ngày mua</th>
+            <th>Số lượng sản phẩm</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+            <th>Link tải</th>
+        </tr>
+        </thead>
+        <tbody id="history-items"></tbody>
+    </table>
+</div>
+
+<script>
+    let cart = [
+        { name: "Elden Ring", description: "Game hành động thế giới mở", price: 59.99, image: "eldenring.jpg" },
+        { name: "Cyberpunk 2077", description: "Game nhập vai tương lai", price: 49.99, image: "cyberpunk.jpg" },
+        { name: "God of War", description: "Game hành động phiêu lưu", price: 39.99, image: "gow.jpg" }
+    ];
+    let history = [];
+
+    function updateCart() {
+        let cartItems = document.getElementById('cart-items');
+        cartItems.innerHTML = '';
+        let total = 0;
+        cart.forEach((item, index) => {
+            total += item.price;
+            cartItems.innerHTML += `<tr>
+            <td>${item.name}</td>
+            <td>${item.description}</td>
+            <td>$${item.price}</td>
+            <td>$${item.price}</td>
+            <td><button class='btn btn-danger' onclick='removeFromCart(${index})'>Xóa</button></td>
+        </tr>`;
+        });
+        document.getElementById('cart-total').innerText = total;
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCart();
+    }
+
+    function checkout() {
+        if (cart.length === 0) {
+            alert('Giỏ hàng trống!');
+            return;
+        }
+
+        let totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+        let order = {
+            date: new Date().toLocaleString(),
+            items: cart.length,
+            total: totalAmount,
+            status: "Đã thanh toán",
+            links: cart.map(item => `<a href='#' onclick="downloadGame('${item.name}')">Tải ${item.name}</a>`).join("<br>")
+        };
+
+        history.push(order);
+        cart = [];
+        updateCart();
+        updateHistory();
+        alert('Thanh toán thành công! Link tải đã được cập nhật.');
+    }
+
+    function downloadGame(gameName) {
+        alert(`Bắt đầu tải xuống: ${gameName}`);
+        // Ở đây bạn có thể điều hướng đến link tải thực tế, ví dụ:
+        // window.location.href = "https://example.com/download/" + gameName;
+    }
+
+    function updateHistory() {
+        let historyItems = document.getElementById('history-items');
+        historyItems.innerHTML = '';
+        history.forEach(order => {
+            historyItems.innerHTML += `<tr>
+            <td>${order.date}</td>
+            <td>${order.items}</td>
+            <td>$${order.total}</td>
+            <td>${order.status}</td>
+            <td>${order.links}</td>
+        </tr>`;
+        });
+    }
+    updateCart();
+</script>
+
+<footer>
+    <div class="container">
+        <div class="col-lg-12">
+            <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" th:href="@{https://templatemo.com}" target="_blank">Design: TemplateMo</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/js/isotope.min.js}"></script>
+<script th:src="@{/assets/js/owl-carousel.js}"></script>
+<script th:src="@{/assets/js/counter.js}"></script>
+<script th:src="@{/assets/js/custom.js}"></script>
+
+</body>
+</html>
