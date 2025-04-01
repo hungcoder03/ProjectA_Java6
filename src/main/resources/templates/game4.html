@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap}" rel="stylesheet">
+
+    <title>Lugx Gaming - Product Detail</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" th:href="@{/assets/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/templatemo-lugx-gaming.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/owl.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/animate.css}">
+    <link rel="stylesheet" th:href="@{https://unpkg.com/swiper@7/swiper-bundle.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/cart.css}">
+    <!--
+
+    TemplateMo 589 lugx gaming
+
+    https://templatemo.com/tm-589-lugx-gaming
+
+    -->
+</head>
+
+<body>
+
+<!-- ***** Preloader Start ***** -->
+<div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo.png" alt="" style="width: 158px;">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a th:href="@{/home}">Home</a></li>
+                        <li><a th:href="@{/shop}">Our Shop</a></li>
+                        <li><a href="product-details.html" class="active">Product Details</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Sign In</a></li>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Modern Warfare® II</h3>
+                <span class="breadcrumb"><a href="#">Home</a>  >  <a href="#">Shop</a>  >  Assasin Creed</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="single-product section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="left-image">
+                    <img height="315" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2344520/header.jpg?t=1737494669" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <h4>Diablo® IV: Vessel of Hatred™ - Expansion Bundle</h4>
+                <span class="price"><em>$70</em> $65.5</span>
+                <h4>Diablo® IV - Standard Edition</h4>
+                <span class="price"><em>$50</em> $46.8</span>
+                <p>Join the fight for Sanctuary in Diablo® IV, the ultimate action RPG adventure. Experience the critically acclaimed campaign and new seasonal content.</p>
+                <form id="qty" action="#">
+<!--                    <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">-->
+                    <!-- Chưa có trang giỏ hàng -->
+                    <button type="button" onclick="showCartPopup()"> ADD TO CART</button>
+                </form>
+                <ul>
+                    <li><span>Game ID:</span> Diablo® IV</li>
+                    <li><span>Genre:</span> <a href="#">Action</a>, <a href="#">RPG</a></li>
+                    <li><span>Multi-tags:</span> <a href="#">Dark Fantasy</a>, <a href="#">Hack and Slash</a>, <a href="#">Open World</a>, <a href="#">Multiplayer</a>, <a href="#">PvE</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-12">
+                <div class="sep"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cart Popup -->
+<div id="cart-popup" class="cart-popup">
+    <div class="cart-popup-content">
+        <h2>Đã thêm vào giỏ hàng!</h2>
+        <div class="cart-item">
+            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2344520/header.jpg?t=1737494669" alt="Game Thumbnail">
+            <span>Diablo® IV - Standard Edition $65.5</span>
+        </div>
+        <button class="view-cart" onclick="closeCartPopup()">Tiếp tục mua sắm</button>
+        <button class="view-cart">Xem giỏ hàng (1)</button>
+    </div>
+</div>
+
+<script>
+    function showCartPopup() {
+        document.getElementById("cart-popup").style.display = "flex"; // Flex for centering content
+    }
+
+    function closeCartPopup() {
+        document.getElementById("cart-popup").style.display = "none";
+    }
+</script>
+
+<div class="more-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tabs-content">
+                    <div class="row">
+                        <div class="nav-wrapper ">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (3)</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2344520/extras/D4-Steam_Game-Capsule_Main-616x353.png?t=1737494669">
+                                <p>Diablo® IV is the ultimate action-RPG experience with endless evil to slaughter, countless abilities to master, nightmarish dungeons, and legendary loot. Embark on the epic campaign solo or with friends, meeting memorable characters through a gripping story in a beautifully dark world, or explore an expansive end game: battle iconic bosses for powerful loot, fight back the encroaching onslaught of Hell in Helltides, master the Forge to create your ultimate weapons and progress powerful characters, with cross-play and cross-progression on all available platforms.</p>
+                                <br>
+                                <p style="color: #0d6efd">Welcome to Hell</p>
+                                <br>
+                                <p>Discover the critically acclaimed franchise that defined the Action RPG genre. As the battle between the High Heavens and Burning Hells rages on, hatred devours Sanctuary as evil spreads and a new wave of cultists and worshippers arise to embrace Lilith’s coming. Only a brave few dare to face this threat and bring light to the all-consuming darkness.</p>
+                                <br>
+                                <p style="color: #0d6efd">Expansive Open World</p>
+                                <br>
+                                <p>Forge your own path through the corrupted lands of Sanctuary, an ever-growing, fully explorable world teeming with challenges, quests, enemies, and loot. Join your fellow adventurers, rescue and retake besieged towns, delve into nightmarish dungeons and uncover lost secrets as you fight back evil. The many zones of Sanctuary are yours to explore, and with rotating areas of extreme peril like World Bosses and Helltide, danger lurks at every turn.</p>
+                                <br>
+                                <p style="color: #0d6efd">Immersive Character Development</p>
+                                <br>
+                                <p>Create and customize your character to face the encroaching darkness. Choose from one of five classes and build your hero with skills, abilities and cosmetics, creating a champion that is uniquely your own. Grow stronger as you progress through powerful Skill Trees and develop even more unique end game specializations with Paragon Boards.</p>
+                                <br>
+                                <p style="color: #0d6efd">Legendary Gear, Epic Battles</p>
+                                <br>
+                                <p>Discover and experiment with a vast arsenal of powerful weapons, armor and more to fight back against the demons threatening Sanctuary. Explore unique combinations, create your own upgrades and collect a plethora of powerful tools to battle in immersive, action-packed combat against the deadliest of enemies.</p>
+                                <br>
+                                <p style="color: #0d6efd">Seasons & Events</p>
+                                <br>
+                                <p>The tales of Sanctuary continue to unfold. Create Seasonal Characters and join in fresh adventures - master new mechanics and take on the latest threats in each new Season. Complete harrowing feats of the Season Journey and earn new Battle Pass rewards. Plus, sharpen your swords and get in the spirit of the seasons when Limited-Time Events sweep through Sanctuary.</p>
+                                <br>
+                                <p style="color: #0d6efd">End Game Undertakings</p>
+                                <br>
+                                <p>There’s even more Diablo® IV to explore as you reach higher levels and more fearsome World Tiers. Face the greatest challenge yet as you take on the most powerful demons in The Pit, steel yourself against Uber Bosses to reap uber unique rewards, fight back overflowing armies of Hell as Helltides emerge across Sanctuary, battle larger-than-life World Bosses, and master the Forge to create the mightiest weapons fit for a hero.</p>
+                                <br>
+                            </div>
+                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                                <p>Diablo® IV is an action RPG that brings players back to the dark and gritty world of Sanctuary.</p>
+                                <p>- The game features an expansive open world where players can explore different regions, fight enemies, and uncover secrets.</p>
+                                <p>- Players can choose from five unique classes: Barbarian, Sorcerer, Druid, Rogue, and Necromancer, each with their own playstyle and abilities.</p>
+                                <p>- Diablo® IV has a deep storyline with dark, immersive narrative elements, focusing on the return of the demoness, Lilith.</p>
+                                <p>- The game supports both solo play and online multiplayer modes, with the ability to join or create parties to tackle various challenges together.</p>
+                                <p>- Diablo® IV features dynamic events, dungeons, and a vast loot system to keep players engaged for hours on end.</p>
+                                <br>
+                                <p>※ Players can customize their characters with gear, skill trees, and talents to build powerful, unique heroes.</p>
+                                <p>※ The game includes endgame content such as world bosses, seasonal challenges, and PvP zones for players to continue their journey after completing the main story.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section categories related-games">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h6>Action</h6>
+                    <h2>Related Games</h2>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="main-button">
+                    <a th:href="@{/viewall}">View All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="position: relative;width: 80%;margin: auto;overflow: hidden;background: #0d6efd;padding: 20px;border-radius: 8px;">
+        <button style="position: absolute;top: 50%;transform: translateY(-50%);background: rgba(0, 0, 0, 0.5);border: none;color: white;padding: 10px;cursor: pointer;border-radius: 5px;left: 0;">&#10094;</button>
+        <div style="display: flex;transition: transform 0.5s ease-in-out;" id="gameSlider">
+            <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
+                <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg?t=1741113466" alt="Game 1">
+                <p style="margin: 10px 0;">Risk of Rain 2</p>
+                <p style="color: green;font-weight: bold;">-67%</p>
+                <p style="text-decoration: line-through;color: gray;">220.000đ</p>
+                <p style="color: #0d6efd;font-weight: bold;">72.500đ</p>
+            </div>
+            <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
+                <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1729703045" alt="Game 2">
+                <p style="margin: 10px 0;">Counter-Strike 2</p>
+                <p style="color: #0d6efd;font-weight: bold;">Free To Play</p>
+            </div>
+            <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
+                <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/397540/header.jpg?t=1731365610" alt="Game 3">
+                <p style="margin: 10px 0;">Borderlands 3</p>
+                <p style="color: green;font-weight: bold;">-90%</p>
+                <p style="text-decoration: line-through;color: gray;">990.000đ</p>
+                <p style="color: #0d6efd;font-weight: bold;">99.000đ</p>
+            </div>
+            <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
+                <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/359550/header.jpg?t=1742315874" alt="Game 4">
+                <p style="margin: 10px 0;">Rainbow Six Siege</p>
+                <p style="color: #0d6efd;font-weight: bold;">339.000đ</p>
+            </div>
+        </div>
+        <button style="position: absolute;top: 50%;transform: translateY(-50%);background: rgba(0, 0, 0, 0.5);border: none;color: white;padding: 10px;cursor: pointer;border-radius: 5px;right: 0;">&#10095;</button>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="col-lg-12">
+            <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" th:href="@{https://templatemo.com}" target="_blank"></a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/js/isotope.min.js}"></script>
+<script th:src="@{/assets/js/owl-carousel.js}"></script>
+<script th:src="@{/assets/js/counter.js}"></script>
+<script th:src="@{/assets/js/custom.js}"></script>
+
+</body>
+</html>
