@@ -99,9 +99,9 @@
                 <span class="price"><em>$12</em> $10</span>
                 <p>Gunfire Reborn is a first-person shooter role-playing adventure game. Players can control heroes with different abilities to progress through diverse world gameplay, random weapons in random levels. The game can be played solo or Co-op with 4 other players.</p>
                 <form id="qty" action="#">
-<!--                    <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">-->
+                    <!--                    <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">-->
                     <!-- Chưa có trang giỏ hàng -->
-                    <button type="button" onclick="showCartPopup()"></i> ADD TO CART</button>
+                    <button type="button" onclick="showCartPopup()"><a href="/cart">ADD TO CART</a></button>
                 </form>
                 <ul>
                     <li><span>Game ID:</span> 枪火, Gunfire</li>
@@ -115,7 +115,7 @@
         </div>
     </div>
 </div>
-<!-- Cart Popup -->
+<!-- Popup giỏ hàng -->
 <div id="cart-popup" class="cart-popup">
     <div class="cart-popup-content">
         <h2>Đã thêm vào giỏ hàng!</h2>
@@ -124,9 +124,19 @@
             <span>Gunfire Reborn $18.5</span>
         </div>
         <button class="view-cart" onclick="closeCartPopup()">Tiếp tục mua sắm</button>
-        <button class="view-cart">Xem giỏ hàng (1)</button>
+        <button class="view-cart"><a href="/cart">Xem giỏ hàng (1)</a></button>
     </div>
 </div>
+
+<script>
+    function showCartPopup() {
+        document.getElementById("cart-popup").style.display = "flex"; // Hiển thị pop-up
+    }
+
+    function closeCartPopup() {
+        document.getElementById("cart-popup").style.display = "none"; // Đóng pop-up
+    }
+</script>
 
 <script>
     function showCartPopup() {
