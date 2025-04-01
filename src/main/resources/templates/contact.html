@@ -50,17 +50,32 @@ https://templatemo.com/tm-589-lugx-gaming
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a th:href="index.html" class="logo">
-                        <img th:src="assets/images/logo.png" alt="" style="width: 158px;">
+                    <a th:href="@{/home}" class="logo">
+                        <img th:src="@{/assets/images/logo.png}" alt="" style="width: 158px;">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a th:href="index.html">Home</a></li>
-                      <li><a th:href="shop.html">Our Shop</a></li>
-                      <li><a th:href="product-details.html">Product Details</a></li>
-                      <li><a th:href="contact.html" class="active">Contact Us</a></li>
-                      <li><a th:href="#">Sign In</a></li>
+                      <li><a th:href="@{/home}">Home</a></li>
+                      <li><a th:href="@{/shop}">Our Shop</a></li>
+<!--                      <li><a th:href="product-details.html">Product Details</a></li>-->
+                      <li><a th:href="@{/contact}" class="active">Contact Us</a></li>
+
+                      <!-- Hiển thị khi chưa đăng nhập -->
+                      <li th:if="${session.loggedInUser == null}">
+                        <a th:href="@{/auth/login}">Sign In</a>
+                      </li>
+
+                      <!-- Hiển thị khi đã đăng nhập -->
+                      <li th:if="${session.loggedInUser != null}" class="dropdown">
+                        <div class="dropdown-toggle" id="dropdownBtn">
+                          <span th:text="${session.loggedInUser.username}">User</span> ▼
+                        </div>
+                        <ul class="dropdown-menu" id="dropdownMenu">
+                          <li><a th:href="@{/auth/logout}">Logout</a></li>
+                        </ul>
+                      </li>
+
                   </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>

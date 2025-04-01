@@ -49,28 +49,18 @@
     <div class="row">
       <div class="col-12">
         <nav class="main-nav">
+          <!-- ***** Logo Start ***** -->
           <a href="index.html" class="logo">
-            <img th:src="@{/assets/images/logo.png}" alt="" style="width: 158px;">
+            <img src="assets/images/logo.png" alt="" style="width: 158px;">
           </a>
+          <!-- ***** Logo End ***** -->
+          <!-- ***** Menu Start ***** -->
           <ul class="nav">
-            <li><a th:href="@{/}">Home</a></li>
-            <li><a th:href="@{/shop}">Our Shop</a></li>
-            <li><a th:href="@{/contact}" class="active">Contact Us</a></li>
-
-            <!-- Hiển thị khi chưa đăng nhập -->
-            <li th:if="${session.loggedInUser == null}">
-              <a th:href="@{/auth/login}">Sign In</a>
-            </li>
-
-            <!-- Hiển thị khi đã đăng nhập -->
-            <li th:if="${session.loggedInUser != null}" class="dropdown">
-              <div class="dropdown-toggle" id="dropdownBtn">
-                <span th:text="${session.loggedInUser.username}">User</span> ▼
-              </div>
-              <ul class="dropdown-menu" id="dropdownMenu">
-                <li><a th:href="@{/auth/logout}">Logout</a></li>
-              </ul>
-            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Our Shop</a></li>
+            <li><a href="product-details.html" class="active">Product Details</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Sign In</a></li>
           </ul>
           <a class='menu-trigger'>
             <span>Menu</span>
@@ -109,14 +99,14 @@
         <span class="price"><em>$62</em> $50.62</span>
         <p>Black Myth: Wukong is an action RPG rooted in Chinese mythology. You shall set out as the Destined One to venture into the challenges and marvels ahead, to uncover the obscured truth beneath the veil of a glorious legend from the past.</p>
         <form id="qty" action="#">
-          <!--            <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">-->
+          <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
           <!-- Chưa có trang giỏ hàng -->
           <button type="submit"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
         </form>
         <ul>
-          <li><span>Game ID:</span> Black Myth Wukong</li>
-          <li><span>Genre:</span> <a href="#">Action</a>, <a href="#">Adventure</a>, <a href="#">RPG</a></li>
-          <li><span>Multi-tags:</span> <a href="#">Fantasy</a>, <a href="#">Mythology</a>, <a href="#">Single-player</a>, <a href="#">Combat</a></li>
+          <li><span>Game ID:</span> COD MMII</li>
+          <li><span>Genre:</span> <a href="#">Action</a>, <a href="#">Team</a>, <a href="#">Single</a></li>
+          <li><span>Multi-tags:</span> <a href="#">War</a>, <a href="#">Battle</a>, <a href="#">Royal</a></li>
         </ul>
       </div>
       <div class="col-lg-12">
@@ -146,7 +136,7 @@
               <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
                 <p>Black Myth: Wukong is an action RPG rooted in Chinese mythology. The story is based on Journey to the West, one of the Four Great Classical Novels of Chinese literature. You shall set out as the Destined One to venture into the challenges and marvels ahead, to uncover the obscured truth beneath the veil of a glorious legend from the past.</p>
                 <br>
-                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/extras/SteamGIF_Scene.gif?t=1742561528">
+                <img width="400px" height="400px" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/extras/SteamGIF_Scene.gif?t=1742561528">
                 <br>
                 <p style="color: #0d6efd">• Explore a Land of Vast Wonders</p>
                 <br>
@@ -220,37 +210,47 @@
           <a href="shop.html">View All</a>
         </div>
       </div>
+      <div class="col-lg col-sm-6 col-xs-12">
+        <div class="item">
+          <h4>Action</h4>
+          <div class="thumb">
+            <a href="product-details.html"><img src="assets/images/categories-01.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg col-sm-6 col-xs-12">
+        <div class="item">
+          <h4>Action</h4>
+          <div class="thumb">
+            <a href="product-details.html"><img src="assets/images/categories-05.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg col-sm-6 col-xs-12">
+        <div class="item">
+          <h4>Action</h4>
+          <div class="thumb">
+            <a href="product-details.html"><img src="assets/images/categories-03.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg col-sm-6 col-xs-12">
+        <div class="item">
+          <h4>Action</h4>
+          <div class="thumb">
+            <a href="product-details.html"><img src="assets/images/categories-04.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg col-sm-6 col-xs-12">
+        <div class="item">
+          <h4>Action</h4>
+          <div class="thumb">
+            <a href="product-details.html"><img src="assets/images/categories-05.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div style="position: relative;width: 80%;margin: auto;overflow: hidden;background: #0d6efd;padding: 20px;border-radius: 8px;">
-    <button style="position: absolute;top: 50%;transform: translateY(-50%);background: rgba(0, 0, 0, 0.5);border: none;color: white;padding: 10px;cursor: pointer;border-radius: 5px;left: 0;">&#10094;</button>
-    <div style="display: flex;transition: transform 0.5s ease-in-out;" id="gameSlider">
-      <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
-        <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg?t=1741113466" alt="Game 1">
-        <p style="margin: 10px 0;">Risk of Rain 2</p>
-        <p style="color: green;font-weight: bold;">-67%</p>
-        <p style="text-decoration: line-through;color: gray;">220.000đ</p>
-        <p style="color: #0d6efd;0font-weight: bold;">72.500đ</p>
-      </div>
-      <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
-        <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg?t=1741113466" alt="Game 2">
-        <p style="margin: 10px 0;">Counter-Strike 2</p>
-        <p style="color: #0d6efd;0font-weight: bold;">Free To Play</p>
-      </div>
-      <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
-        <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg?t=1741113466" alt="Game 3">
-        <p style="margin: 10px 0;">Borderlands 3</p>
-        <p style="color: green;font-weight: bold;">-90%</p>
-        <p style="text-decoration: line-through;color: gray;">990.000đ</p>
-        <p style="color: #0d6efd;0font-weight: bold;">99.000đ</p>
-      </div>
-      <div style="min-width: 200px;margin: 0 10px;background: #0e1621;border-radius: 5px;overflow: hidden;text-align: center;">
-        <img style="width: 100%;height: auto;border-bottom: 2px solid #1b2838;" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg?t=1741113466" alt="Game 4">
-        <p style="margin: 10px 0;">Rainbow Six Siege</p>
-        <p style="color: #0d6efd;0font-weight: bold;">339.000đ</p>
-      </div>
-    </div>
-    <button style="position: absolute;top: 50%;transform: translateY(-50%);background: rgba(0, 0, 0, 0.5);border: none;color: white;padding: 10px;cursor: pointer;border-radius: 5px;right: 0;">&#10095;</button>
   </div>
 </div>
 
