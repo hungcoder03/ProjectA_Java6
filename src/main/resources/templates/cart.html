@@ -135,7 +135,6 @@
         <thead>
         <tr>
             <th>Ngày mua</th>
-            <th>Số lượng sản phẩm</th>
             <th>Tổng tiền</th>
             <th>Trạng thái</th>
             <th>Link tải</th>
@@ -146,11 +145,7 @@
 </div>
 
 <script>
-    let cart = [
-        // { name: "Elden Ring", description: "Game hành động thế giới mở", price: 59.99, image: "eldenring.jpg" },
-        // { name: "Cyberpunk 2077", description: "Game nhập vai tương lai", price: 49.99, image: "cyberpunk.jpg" },
-        // { name: "God of War", description: "Game hành động phiêu lưu", price: 39.99, image: "gow.jpg" }
-    ];
+    let cart = JSON.parse(localStorage.getItem('cart')) || []; // Lấy giỏ hàng từ localStorage khi trang tải
     let history = [];
 
     function updateCart() {
@@ -160,18 +155,19 @@
         cart.forEach((item, index) => {
             total += item.price;
             cartItems.innerHTML += `<tr>
-            <td>${item.name}</td>
-            <td>${item.description}</td>
-            <td>$${item.price}</td>
-            <td>$${item.price}</td>
-            <td><button class='btn btn-danger' onclick='removeFromCart(${index})'>Xóa</button></td>
-        </tr>`;
+                <td>${item.name}</td>
+                <td>${item.description}</td>
+                <td>$${item.price}</td>
+                <td>$${item.price}</td>
+                <td><button class='btn btn-danger' onclick='removeFromCart(${index})'>Xóa</button></td>
+            </tr>`;
         });
-        document.getElementById('cart-total').innerText = total;
+        document.getElementById('cart-total').innerText = total.toFixed(2);
     }
 
     function removeFromCart(index) {
         cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart)); // Cập nhật lại giỏ hàng trong localStorage
         updateCart();
     }
 
@@ -182,25 +178,26 @@
         }
 
         let totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+        alert(`Thanh toán thành công! Tổng tiền: $${totalAmount.toFixed(2)}`);
+        cart = []; // Xóa giỏ hàng sau khi thanh toán
+        localStorage.setItem('cart', JSON.stringify(cart)); // Cập nhật lại giỏ hàng trong localStorage
+        updateCart(); // Cập nhật lại giỏ hàng trên giao diện
+
         let order = {
             date: new Date().toLocaleString(),
-            items: cart.length,
             total: totalAmount,
             status: "Đã thanh toán",
-            links: cart.map(item => `<a href='#' onclick="downloadGame('${item.name}')">Tải ${item.name}</a>`).join("<br>")
+            link: `<a href='#' onclick="downloadGame()">Tải trò chơi</a>` // Chỉnh sửa để chỉ có một link tải chung
         };
 
         history.push(order);
-        cart = [];
-        updateCart();
         updateHistory();
         alert('Thanh toán thành công! Link tải đã được cập nhật.');
     }
 
-    function downloadGame(gameName) {
-        alert(`Bắt đầu tải xuống: ${gameName}`);
-        // Ở đây bạn có thể điều hướng đến link tải thực tế, ví dụ:
-        // window.location.href = "https://example.com/download/" + gameName;
+    function downloadGame() {
+        alert(`Bắt đầu tải xuống trò chơi. ${gameName}`);
+        // window.location.href = "https://example.com/download/game";
     }
 
     function updateHistory() {
@@ -208,24 +205,55 @@
         historyItems.innerHTML = '';
         history.forEach(order => {
             historyItems.innerHTML += `<tr>
-            <td>${order.date}</td>
-            <td>${order.items}</td>
-            <td>$${order.total}</td>
-            <td>${order.status}</td>
-            <td>${order.links}</td>
-        </tr>`;
+                <td>${order.date}</td>
+                <td>$${order.total}</td>
+                <td>${order.status}</td>
+                <td>${order.link}</td>
+            </tr>`;
         });
     }
-    updateCart();
+
+    function loadCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItems = document.getElementById('cart-items');
+        let total = 0;
+
+        cartItems.innerHTML = ''; // Xóa các dòng cũ trong giỏ hàng
+
+        cart.forEach((item, index) => {
+            total += item.price;
+            cartItems.innerHTML += `
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.description}</td>
+                <td>$${item.price}</td>
+                <td>$${item.price}</td>
+                <td><button class='btn btn-danger' onclick='removeFromCart(${index})'>Xóa</button></td>
+            </tr>`;
+        });
+
+        document.getElementById('cart-total').innerText = total.toFixed(2);
+    }
+
+    window.onload = loadCart;
 </script>
+
 
 <footer>
     <div class="container">
         <div class="col-lg-12">
-            <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" th:href="@{https://templatemo.com}" target="_blank">Design: TemplateMo</a></p>
+            <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a href="https://templatemo.com" target="_blank">Design: TemplateMo</a></p>
         </div>
     </div>
 </footer>
+
+<!--<footer>-->
+<!--    <div class="container">-->
+<!--        <div class="col-lg-12">-->
+<!--            <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" th:href="@{https://templatemo.com}" target="_blank">Design: TemplateMo</a></p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</footer>-->
 
 <!-- Scripts -->
 <!-- Bootstrap core JavaScript -->

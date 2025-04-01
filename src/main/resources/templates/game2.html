@@ -101,7 +101,12 @@
                 <form id="qty" action="#">
                     <!--                    <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">-->
                     <!-- Chưa có trang giỏ hàng -->
-                    <button type="button" onclick="showCartPopup()"><a href="/cart">ADD TO CART</a></button>
+<!--                    <button type="button" onclick="showCartPopup()"><a href="/cart">ADD TO CART</a></button>-->
+                    <button type="button" onclick="addToCart({
+                name: 'Gunfire Reborn',
+                description: 'Một game bắn súng hành động kết hợp nhập vai.',
+                price: 18.5
+            })"><a href="/cart">ADD TO CART</a></button>
                 </form>
                 <ul>
                     <li><span>Game ID:</span> 枪火, Gunfire</li>
@@ -129,6 +134,15 @@
 </div>
 
 <script>
+    function addToCart(product) {
+        // Lấy thông tin sản phẩm từ đối tượng
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Sản phẩm đã được thêm vào giỏ hàng!');
+    }
+
+
     function showCartPopup() {
         document.getElementById("cart-popup").style.display = "flex"; // Hiển thị pop-up
     }
@@ -138,15 +152,6 @@
     }
 </script>
 
-<script>
-    function showCartPopup() {
-        document.getElementById("cart-popup").style.display = "flex"; // Flex for centering content
-    }
-
-    function closeCartPopup() {
-        document.getElementById("cart-popup").style.display = "none";
-    }
-</script>
 
 <div class="more-info">
     <div class="container">
@@ -240,10 +245,18 @@
 <footer>
     <div class="container">
         <div class="col-lg-12">
-            <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" th:href="@{https://templatemo.com}" target="_blank"></a></p>
+            <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a href="https://templatemo.com" target="_blank">Design: TemplateMo</a></p>
         </div>
     </div>
 </footer>
+
+<!--<footer>-->
+<!--    <div class="container">-->
+<!--        <div class="col-lg-12">-->
+<!--            <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" th:href="@{https://templatemo.com}" target="_blank"></a></p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</footer>-->
 
 <!-- Scripts -->
 <!-- Bootstrap core JavaScript -->
