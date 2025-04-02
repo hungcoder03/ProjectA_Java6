@@ -98,7 +98,12 @@
         <p>LUGX Gaming Template is based on the latest Bootstrap 5 CSS framework. This template is provided by TemplateMo and it is suitable for your gaming shop ecommerce websites. Feel free to use this for any purpose. Thank you.</p>
         <form id="qty" action="#">
           <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
-          <button type="submit"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+<!--          <button type="submit"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>-->
+          <button type="button" onclick="addToCart({
+                name: 'Call of Duty®: Modern Warfare® II',
+                description: 'Một game bắn súng hành động kết hợp nhập vai.',
+                price: 22
+            })"><i class="fa fa-shopping-bag"></i><a href="/cart">ADD TO CART</a></button>
         </form>
         <ul>
           <li><span>Game ID:</span> COD MMII</li>
@@ -112,6 +117,16 @@
     </div>
   </div>
 </div>
+
+<script>
+  function addToCart(product) {
+    // Lấy thông tin sản phẩm từ đối tượng
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert('Sản phẩm đã được thêm vào giỏ hàng!');
+  }
+</script>
 
 <div class="more-info">
   <div class="container">

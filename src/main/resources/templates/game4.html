@@ -100,9 +100,15 @@
                 <span class="price"><em>$50</em> $46.8</span>
                 <p>Join the fight for Sanctuary in Diablo® IV, the ultimate action RPG adventure. Experience the critically acclaimed campaign and new seasonal content.</p>
                 <form id="qty" action="#">
-<!--                    <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">-->
+                    <!--                    <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">-->
                     <!-- Chưa có trang giỏ hàng -->
-                    <button type="button" onclick="showCartPopup()"> ADD TO CART</button>
+<!--                    <button type="button" onclick="showCartPopup()"> ADD TO CART</button>-->
+                    <button type="button" onclick="addToCart({
+                name: 'Diablo® IV: Vessel of Hatred™ - Expansion Bundle',
+                description: 'Một game phiêu lưu nhập vai hành động.',
+                price: 65.5
+            })"><a href="/cart">ADD TO CART</a></button>
+
                 </form>
                 <ul>
                     <li><span>Game ID:</span> Diablo® IV</li>
@@ -130,6 +136,15 @@
 </div>
 
 <script>
+
+        function addToCart(product) {
+        // Lấy thông tin sản phẩm từ đối tượng
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Sản phẩm đã được thêm vào giỏ hàng!');
+    }
+
     function showCartPopup() {
         document.getElementById("cart-popup").style.display = "flex"; // Flex for centering content
     }

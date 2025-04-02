@@ -102,7 +102,12 @@
                 <form id="qty" action="#">
                     <!--                    <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">-->
                     <!-- Chưa có trang giỏ hàng -->
-                    <button type="button" onclick="showCartPopup()"><a href="/cart">ADD TO CART</a></button>
+<!--                    <button type="button" onclick="showCartPopup()"><a href="/cart">ADD TO CART</a></button>-->
+                    <button type="button" onclick="addToCart({
+                name: 'Borderlands Collection: Pandora s Box',
+                description: 'Một game bắn súng hành động kết hợp nhập vai.',
+                price: 30
+            })"><a href="/cart">ADD TO CART</a></button>
                 </form>
                 <ul>
                     <li><span>Game ID:</span> Borderlands 3</li>
@@ -130,6 +135,14 @@
 </div>
 
 <script>
+    function addToCart(product) {
+        // Lấy thông tin sản phẩm từ đối tượng
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Sản phẩm đã được thêm vào giỏ hàng!');
+    }
+
     function showCartPopup() {
         document.getElementById("cart-popup").style.display = "flex"; // Flex for centering content
     }

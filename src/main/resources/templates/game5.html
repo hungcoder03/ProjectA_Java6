@@ -97,11 +97,17 @@
                 <span class="price"><em>$65</em> $62.39</span>
                 <h4>Black Myth: Wukong</h4>
                 <span class="price"><em>$62</em> $50.62</span>
-                <p>Black Myth: Wukong is an action RPG rooted in Chinese mythology. You shall set out as the Destined One to venture into the challenges and marvels ahead, to uncover the obscured truth beneath the veil of a glorious legend from the past.</p>
-                <form id="qty" action="#">
+                    <p>Black Myth: Wukong is an action RPG rooted in Chinese mythology. You shall set out as the Destined One to venture into the challenges and marvels ahead, to uncover the obscured truth beneath the veil of a glorious legend from the past.</p>
+                    <form id="qty" action="#">
                     <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
                     <!-- Chưa có trang giỏ hàng -->
-                    <button type="submit"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
+<!--                    <button type="submit"><i class="fa fa-shopping-bag"></i> ADD TO CART</button>-->
+                    <button type="button" onclick="addToCart({
+                name: 'Black Myth: Wukong Digital Deluxe Edition',
+                description: 'Một game hành động kết hợp nhập vai.',
+                price: 62.39
+            })"><i class="fa fa-shopping-bag"></i><a href="/cart">ADD TO CART</a></button>
+
                 </form>
                 <ul>
                     <li><span>Game ID:</span> COD MMII</li>
@@ -115,6 +121,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    function addToCart(product) {
+        // Lấy thông tin sản phẩm từ đối tượng
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Sản phẩm đã được thêm vào giỏ hàng!');
+    }
+</script>
 
 <div class="more-info">
     <div class="container">
