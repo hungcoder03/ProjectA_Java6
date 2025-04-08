@@ -55,8 +55,9 @@
                     </a>
                     <ul class="nav">
                         <li><a th:href="@{/}">Home</a></li>
-                        <li><a th:href="@{/shop}">Our Shop</a></li>
-                        <li><a th:href="@{/contact}" class="active">Contact Us</a></li>
+                        <li><a th:href="@{/shop}" >Our Shop</a></li>
+                        <li><a th:href="@{/cart}" >Cart</a></li>
+                        <li><a th:href="@{/contact}" >Contact Us</a></li>
 
                         <!-- Hiển thị khi chưa đăng nhập -->
                         <li th:if="${session.loggedInUser == null}">

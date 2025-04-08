@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link th:href="@{https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap}" rel="stylesheet">
+
+  <title>Lugx Gaming Shop HTML5 Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" th:href="@{/assets/css/fontawesome.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/templatemo-lugx-gaming.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/owl.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/animate.css}">
+  <link rel="stylesheet" th:href="@{https://unpkg.com/swiper@7/swiper-bundle.min.css}"/>
+  <!--
+
+  TemplateMo 589 lugx gaming
+
+  https://templatemo.com/tm-589-lugx-gaming
+
+  -->
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f8f9fa; }
+    /*.container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px; }*/
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+    img { width: 50px; height: 50px; object-fit: cover; }
+    .btn { padding: 5px 10px; border-radius: 5px; }
+  </style>
+</head>
+
+<body>
+
+<!-- ***** Preloader Start ***** -->
+<div id="js-preloader" class="js-preloader">
+  <div class="preloader-inner">
+    <span class="dot"></span>
+    <div class="dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <a href="index.html" class="logo">
+            <img th:src="@{/assets/images/logo.png}" alt="" style="width: 158px;">
+          </a>
+          <ul class="nav">
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/shop}" >Our Shop</a></li>
+            <li><a th:href="@{/cart}" >Cart</a></li>
+            <li><a th:href="@{/contact}" >Contact Us</a></li>
+
+            <!-- Hiển thị khi chưa đăng nhập -->
+            <li th:if="${session.loggedInUser == null}">
+              <a th:href="@{/auth/login}">Sign In</a>
+            </li>
+
+            <!-- Hiển thị khi đã đăng nhập -->
+            <li th:if="${session.loggedInUser != null}" class="dropdown">
+              <div class="dropdown-toggle" id="dropdownBtn">
+                <span th:text="${session.loggedInUser.username}">User</span> ▼
+              </div>
+              <ul class="dropdown-menu" id="dropdownMenu">
+                <li><a th:href="@{/auth/logout}">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          <a class="menu-trigger">
+            <span>Menu</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--&lt;!&ndash; ***** Header Area End ***** &ndash;&gt;-->
+<!--<div class="page-heading header-text">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <div class="col-lg-12">-->
+<!--        <h3>Our Shop</h3>-->
+<!--        <span class="breadcrumb"><a th:href="@{/home}">Home</a> > Cart</span>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<div class="main-banner">
+  <div class="container">
+    <div class="row">
+      <!--            <div class="col-lg-6 align-self-center">-->
+      <!--                <div class="caption header-text">-->
+      <!--                    <h6>Welcome to lugx</h6>-->
+      <!--                    <h2>BEST GAMING SITE EVER!</h2>-->
+      <!--                    <p>LUGX Gaming is free Bootstrap 5 HTML CSS website template for your gaming websites. You can download and use this layout for commercial purposes. Please tell your friends about TemplateMo.</p>-->
+      <!--                    <div class="search-input">-->
+      <!--                        <form id="search" action="#">-->
+      <!--                            <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />-->
+      <!--                            <button role="button">Search Now</button>-->
+      <!--                        </form>-->
+      <!--                    </div>-->
+      <!--                </div>-->
+      <!--            </div>-->
+      <!--            <div class="col-lg-4 offset-lg-2">-->
+      <!--                <div class="right-image">-->
+      <!--                    <img src="assets/images/banner-image.jpg" alt="">-->
+      <!--                    <span class="price">$22</span>-->
+      <!--                    <span class="offer">-40%</span>-->
+      <!--                </div>-->
+      <!--            </div>-->
+    </div>
+  </div>
+</div>
+
+
+<!-- Giỏ hàng của bạn -->
+<div class="container mt-5">
+  <h1 class="text-center">Giỏ Hàng Của Bạn</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>Tên sản phẩm</th>
+      <th>Mô tả</th>
+      <th>Giá</th>
+      <th>Thành tiền</th>
+      <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody id="cart-items"></tbody>
+  </table>
+  <p class="fw-bold text-end">Tổng tiền: $<span id="cart-total">0</span></p>
+  <button class="btn btn-primary w-100" onclick="checkout()">Thanh toán</button>
+</div>
+
+<div class="container mt-5">
+  <h1 class="text-center">Lịch Sử Mua Hàng</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>Ngày mua</th>
+      <th>Tổng tiền</th>
+      <th>Trạng thái</th>
+      <th>Link tải</th>
+    </tr>
+    </thead>
+    <tbody id="history-items"></tbody>
+  </table>
+</div>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem('cart')) || []; // Lấy giỏ hàng từ localStorage khi trang tải
+  let history = [];
+
+  function updateCart() {
+    let cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+    let total = 0;
+    cart.forEach((item, index) => {
+      total += item.price;
+      cartItems.innerHTML += `<tr>
+                <td>${item.name}</td>
+                <td>${item.description}</td>
+                <td>$${item.price}</td>
+                <td>$${item.price}</td>
+                <td><button class='btn btn-danger' onclick='removeFromCart(${index})'>Xóa</button></td>
+            </tr>`;
+    });
+    document.getElementById('cart-total').innerText = total.toFixed(2);
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart)); // Cập nhật lại giỏ hàng trong localStorage
+    updateCart();
+  }
+
+  function checkout() {
+    if (cart.length === 0) {
+      alert('Giỏ hàng trống!');
+      return;
+    }
+
+    let totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+    alert(`Thanh toán thành công! Tổng tiền: $${totalAmount.toFixed(2)}`);
+    cart = []; // Xóa giỏ hàng sau khi thanh toán
+    localStorage.setItem('cart', JSON.stringify(cart)); // Cập nhật lại giỏ hàng trong localStorage
+    updateCart(); // Cập nhật lại giỏ hàng trên giao diện
+
+    let order = {
+      date: new Date().toLocaleString(),
+      total: totalAmount,
+      status: "Đã thanh toán",
+      link: `<a href='#' onclick="downloadGame()">Tải trò chơi</a>` // Chỉnh sửa để chỉ có một link tải chung
+    };
+
+    history.push(order);
+    updateHistory();
+    alert('Thanh toán thành công! Link tải đã được cập nhật.');
+  }
+
+  function downloadGame() {
+    alert(`Bắt đầu tải xuống trò chơi. ${gameName}`);
+    // window.location.href = "https://example.com/download/game";
+  }
+
+  function updateHistory() {
+    let historyItems = document.getElementById('history-items');
+    historyItems.innerHTML = '';
+    history.forEach(order => {
+      historyItems.innerHTML += `<tr>
+                <td>${order.date}</td>
+                <td>$${order.total}</td>
+                <td>${order.status}</td>
+                <td>${order.link}</td>
+            </tr>`;
+    });
+  }
+
+  function loadCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItems = document.getElementById('cart-items');
+    let total = 0;
+
+    cartItems.innerHTML = ''; // Xóa các dòng cũ trong giỏ hàng
+
+    cart.forEach((item, index) => {
+      total += item.price;
+      cartItems.innerHTML += `
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.description}</td>
+                <td>$${item.price}</td>
+                <td>$${item.price}</td>
+                <td><button class='btn btn-danger' onclick='removeFromCart(${index})'>Xóa</button></td>
+            </tr>`;
+    });
+
+    document.getElementById('cart-total').innerText = total.toFixed(2);
+  }
+
+  window.onload = loadCart;
+</script>
+
+
+<footer>
+  <div class="container">
+    <div class="col-lg-12">
+      <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a href="https://templatemo.com" target="_blank">Design: TemplateMo</a></p>
+    </div>
+  </div>
+</footer>
+
+<!--<footer>-->
+<!--    <div class="container">-->
+<!--        <div class="col-lg-12">-->
+<!--            <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" th:href="@{https://templatemo.com}" target="_blank">Design: TemplateMo</a></p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</footer>-->
+
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/js/isotope.min.js}"></script>
+<script th:src="@{/assets/js/owl-carousel.js}"></script>
+<script th:src="@{/assets/js/counter.js}"></script>
+<script th:src="@{/assets/js/custom.js}"></script>
+
+</body>
+</html>
